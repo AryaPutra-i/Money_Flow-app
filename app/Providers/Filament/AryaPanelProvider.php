@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\user_account;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -19,26 +20,28 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class AryaPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('admin')
-            ->path('admin')
+            ->default()
+            ->id('arya')
+            ->path('arya')
+            ->brandName('MoneyFlow')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            ->discoverResources(in: app_path('Filament/Arya/Resources'), for: 'App\Filament\Arya\Resources')
+            ->discoverPages(in: app_path('Filament/Arya/Pages'), for: 'App\Filament\Arya\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Arya/Widgets'), for: 'App\Filament\Arya\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -53,6 +56,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->navigationGroups([
+                'Workspace Isolation',
+                'Master Data',
+                'Transactions & Social Life',
+                'Planning & Obligations',
             ]);
+
     }
 }

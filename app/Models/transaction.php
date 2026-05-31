@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 #[ObservedBy(TransactionObserver::class)]
 class transaction extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'workspace_id',
         'wallet_id',

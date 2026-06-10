@@ -4,6 +4,7 @@ namespace App\Filament\Arya\Resources\Goals\Schemas;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Hidden;
 use Filament\Schemas\Schema;
 
 class GoalForm
@@ -18,10 +19,9 @@ class GoalForm
                 TextInput::make('Deskripsi'),
                 TextInput::make('target_amount')
                     ->required()
-                    ->numeric(),
-                TextInput::make('current_amount')
-                    ->required()
                     ->numeric()
+                    ->minValue(0.0),
+                Hidden::make('current_amount')
                     ->default(0.0),
             ]);
     }

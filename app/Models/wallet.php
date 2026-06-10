@@ -25,4 +25,9 @@ class wallet extends Model
     {
         return $this->hasMany(transaction::class);
     }
+
+    public function goalSavings(): HasMany
+    {
+        return $this->hasMany(GoalSaving::class);
+    }
 }

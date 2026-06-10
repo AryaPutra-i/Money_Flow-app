@@ -62,6 +62,7 @@ class AryaPanelProvider extends PanelProvider
                 'Master Data',
                 'Transactions & Social Life',
                 'Planning & Obligations',
+                'Saving & Investments',
             ]);
 
     }

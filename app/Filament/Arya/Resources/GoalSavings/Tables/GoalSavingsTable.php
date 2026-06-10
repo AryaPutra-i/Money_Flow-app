@@ -1,35 +1,43 @@
 <?php
 
-namespace App\Filament\Arya\Resources\Goals\Tables;
+namespace App\Filament\Arya\Resources\GoalSavings\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Table;
 
-class GoalsTable
+class GoalSavingsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('workspace.name')
+                TextColumn::make('goal.Deskripsi')
+                    ->label('Goal')
                     ->searchable(),
-                TextColumn::make('Deskripsi')
+                TextColumn::make('wallet.name')
+                    ->label('Wallet')
                     ->searchable(),
-                TextColumn::make('target_amount')
+                TextColumn::make('amount')
+                    ->label('Amount')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('current_amount')
-                    ->numeric()
+                TextColumn::make('date')
+                    ->label('Date')
                     ->sortable(),
+                TextColumn::make('notes')
+                    ->label('Notes')
+                    ->wrap(),
                 TextColumn::make('created_at')
+                    ->label('Created At')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Updated At')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

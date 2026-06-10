@@ -25,4 +25,9 @@ class goal extends Model
     {
         return $this->belongsTo(workspace::class);
     }
+
+    public function goalSavings(): HasMany
+    {
+        return $this->hasMany(GoalSaving::class);
+    }
 }

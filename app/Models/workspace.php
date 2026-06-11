@@ -55,4 +55,21 @@ class workspace extends Model
     {
         return $this->hasMany(SavingInvestasi::class);
     }
+
+    public function subscriptionTransactions(): HasMany
+    {
+        return $this->hasMany(subscriptionTransaction::class);
+    }
+
+    public function financialHealthScores(): HasMany
+    {
+        return $this->hasMany(financialHealthScore::class);
+    }
+
+    public function savedReports(): HasMany
+    {
+        return $this->hasMany(SavedReport::class);
+    }
+
+
 }

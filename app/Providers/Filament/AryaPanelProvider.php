@@ -60,6 +60,7 @@ class AryaPanelProvider extends PanelProvider
             ->navigationGroups([
                 'Workspace Isolation',
                 'Master Data',
+                'Financial Analysis',
                 'Transactions & Social Life',
                 'Planning & Obligations',
                 'Saving & Investments',

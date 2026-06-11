@@ -106,16 +106,49 @@ Dokumentasi ini menjelaskan semua fitur aplikasi MoneyFlow berdasarkan model dan
 - Relasi:
   - `workspaces`: satu akun dapat memiliki banyak workspace.
 
+## 13. Subscription Transaction
+- Fitur: pencatatan transaksi berlangganan/recurring.
+- Deskripsi: subscription transaction mencatat transaksi yang terjadi secara berkala dan otomatis (harian, mingguan, bulanan, atau tahunan). Fitur ini membantu pengguna melacak pembayaran berulang seperti langganan streaming, tagihan utilitas, iuran fitness, dll.
+- Field utama: `workspace_id`, `wallet_id`, `category_id`, `nama_transaksi`, `nominal`, `frekuensi`, `tanggal_mulai`, `tanggal_eksekusi_berikutnya`.
+- Relasi:
+  - `workspace`: transaksi berlangganan berada pada satu workspace.
+  - `wallet`: transaksi berlangganan terkait dengan satu dompet/sumber dana.
+  - `category`: transaksi berlangganan diklasifikasikan dalam satu kategori.
+- Frekuensi yang didukung: `daily` (harian), `weekly` (mingguan), `monthly` (bulanan), `yearly` (tahunan).
+- Kegunaan: memudahkan pengguna untuk mengatur transaksi otomatis, mencegah lupa pembayaran, dan memberikan visibilitas penuh terhadap pengeluaran rutin.
+
+## 14. Financial Health Score
+- Fitur: penilaian kesehatan keuangan workspace.
+- Deskripsi: financial health score menganalisis dan memberikan skor kesehatan keuangan berdasarkan berbagai metrik keuangan pengguna. Skor ini membantu pengguna memahami kondisi keuangan mereka secara keseluruhan dan mengidentifikasi area yang perlu diperbaiki.
+- Field utama: `workspace_id`, `score`, `rincian_metrik`.
+- Relasi:
+  - `workspace`: skor kesehatan berada pada satu workspace.
+- Struktur data: `rincian_metrik` adalah array yang menyimpan detail metrik-metrik yang digunakan dalam perhitungan skor (contoh: rasio tabungan, rasio hutang, keseimbangan arus kas, dll).
+- Kegunaan: memberikan insights mengenai kesehatan finansial, membantu pengguna membuat keputusan keuangan yang lebih baik, dan melacak perkembangan kesehatan keuangan dari waktu ke waktu.
+
+## 15. Saved Report
+- Fitur: penyimpanan laporan/visualisasi custom.
+- Deskripsi: saved report memungkinkan pengguna menyimpan laporan atau visualisasi keuangan yang telah dikustomisasi sesuai kebutuhan mereka. Pengguna dapat membuat berbagai jenis grafik dan laporan dengan filter data tertentu untuk analisis mendalam.
+- Field utama: `workspace_id`, `nama_laporan`, `tipe_grafik`, `filter_data`.
+- Relasi:
+  - `workspace`: laporan tersimpan berada pada satu workspace.
+- Tipe grafik yang didukung: berbagai jenis visualisasi data (contoh: bar chart, pie chart, line chart, dsb).
+- Filter data: array yang menyimpan parameter filter yang digunakan dalam laporan (contoh: rentang tanggal, kategori, tipe transaksi, dll).
+- Kegunaan: memudahkan pengguna untuk membuat dan menyimpan laporan khusus yang sering digunakan, mempercepat akses ke informasi analitik, dan membantu dalam pelaporan dan auditing keuangan.
+
 ## Kesimpulan
 Aplikasi MoneyFlow memiliki fitur utama:
 - manajemen workspace
 - manajemen wallet
 - pencatatan transaksi
+- pencatatan transaksi berlangganan/recurring (BARU)
 - kategori dan anggaran
 - pencatatan hutang/piutang
 - tujuan menabung dan penyetoran goal
 - pencatatan investasi
 - pembagian tagihan bersama
+- penilaian kesehatan keuangan (Financial Health Score) (BARU)
+- penyimpanan laporan/visualisasi custom (Saved Report) (BARU)
 - autentikasi akun pengguna
 
 Semua fitur di atas saling terhubung melalui relasi model Eloquent untuk menjaga konsistensi data dan mendukung alur kerja keuangan lengkap.

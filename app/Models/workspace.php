@@ -50,4 +50,9 @@ class workspace extends Model
     {
         return $this->hasMany(goal::class);
     }
+
+    public function savingInvestasis(): HasMany
+    {
+        return $this->hasMany(SavingInvestasi::class);
+    }
 }

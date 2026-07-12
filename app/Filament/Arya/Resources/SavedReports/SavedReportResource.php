@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use unitEnum;
+use Illuminate\Contracts\Support\Htmlable;
 
 class SavedReportResource extends Resource
 {
@@ -23,8 +24,25 @@ class SavedReportResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Financial Analysis';
 
+    protected static ?string $recordTitleAttribute = 'nama_laporan';
 
-    protected static ?string $recordTitleAttribute = 'title';
+    public static function getGlobalSearchResultTitle(SavedReport $record): string|Htmlable
+    {
+        return $record->nama_laporan;
+    }
+
+    public static function getGlobalSearchResultDetails(SavedReport $record): array
+    {
+        return [
+            'Workspace' => $record->workspace->name,
+            'Tipe Grafik' => $record->tipe_grafik,
+        ];
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['nama_laporan', 'workspace.name'];
+    }
 
     public static function form(Schema $schema): Schema
     {

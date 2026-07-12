@@ -22,7 +22,7 @@ class FinancialHealthScoresTable
     {
         return $table
             ->columns([
-                TextColumn::make('workspace.name')->label('Nama Workspace')->sortable(),
+                TextColumn::make('workspace.name')->label('Nama Workspace')->sortable()->searchable(),
                 TextColumn::make('score')->label('Skor Kesehatan Finansial')->badge()->suffix('%')
                     ->color(fn (int $state): string => match (true) {
                         $state >= 80 => 'success',

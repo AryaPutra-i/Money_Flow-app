@@ -17,9 +17,12 @@ class DebtsTable
                 TextColumn::make('workspace.name')
                     ->searchable(),
                 TextColumn::make('type')
+                    ->searchable()
+                    ->sortable()
                     ->badge(),
                 TextColumn::make('person_name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('amount')
                     ->numeric()
                     ->sortable(),

@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+use Illuminate\Contracts\Support\Htmlable;
 
 class GoalResource extends Resource
 {
@@ -23,7 +24,29 @@ class GoalResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
 
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $recordTitleAttribute = 'Deskripsi';
+
+    public static function getGloballySearchableAttrributes(): array
+    {
+        return [
+            'Deskripsi',
+            'workspace.name',
+        ];
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string |Htmlable
+    {
+        return $record->Deskripsi;
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Workspace' => $record->workspace->name,
+            'Target Amount' => $record->target_amount,
+            'Current Amount' => $record->current_amount,
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -19,6 +19,8 @@ class CategoriesTable
                 TextColumn::make('name_category')
                     ->searchable(),
                 TextColumn::make('type_category')
+                    ->searchable()
+                    ->sortable()
                     ->badge(),
                 TextColumn::make('created_at')
                     ->dateTime()

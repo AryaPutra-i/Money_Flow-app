@@ -23,8 +23,6 @@ class GoalSavingsResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Saving & Investments';
 
-    protected static ?string $recordTitleAttribute = 'title';
-
     public static function form(Schema $schema): Schema
     {
         return GoalSavingsForm::configure($schema);

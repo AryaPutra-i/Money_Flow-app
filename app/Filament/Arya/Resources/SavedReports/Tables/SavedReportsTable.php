@@ -16,8 +16,8 @@ class SavedReportsTable
     {
         return $table
             ->columns([
-                TextColumn::make('workspace.name')->label('Workspace'),
-                TextColumn::make('nama_laporan')->label('Nama Laporan'),
+                TextColumn::make('workspace.name')->label('Workspace')->sortable()->searchable(),
+                TextColumn::make('nama_laporan')->label('Nama Laporan')->sortable()->searchable(),
                 TextColumn::make('tipe_grafik')->label('Forma Visualisasi Grafik')
                     ->badge()
                     ->color('info')

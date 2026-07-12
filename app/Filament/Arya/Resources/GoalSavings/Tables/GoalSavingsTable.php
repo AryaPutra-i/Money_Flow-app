@@ -16,11 +16,9 @@ class GoalSavingsTable
         return $table
             ->columns([
                 TextColumn::make('goal.Deskripsi')
-                    ->label('Goal')
-                    ->searchable(),
+                    ->label('Goal'),
                 TextColumn::make('wallet.name')
-                    ->label('Wallet')
-                    ->searchable(),
+                    ->label('Wallet'),
                 TextColumn::make('amount')
                     ->label('Amount')
                     ->numeric()

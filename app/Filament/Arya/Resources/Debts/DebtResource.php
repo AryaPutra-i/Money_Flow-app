@@ -23,7 +23,7 @@ class DebtResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
 
-    protected static ?string $recordTitleAttribute = 'debt';
+    protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {

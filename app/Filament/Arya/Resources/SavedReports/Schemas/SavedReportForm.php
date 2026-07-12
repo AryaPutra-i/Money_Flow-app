@@ -13,7 +13,7 @@ class SavedReportForm
     {
         return $schema
             ->components([
-                Select::make('workpace_id')
+                Select::make('workspace_id')
                     ->relationship('workspace', 'name')
                     ->required()
                     ->searchable()

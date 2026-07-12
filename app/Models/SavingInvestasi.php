@@ -18,7 +18,7 @@ class SavingInvestasi extends Model
         'status',
     ];
 
-    protected $casts = ['tanggal_mulai' => 'date', 'tanggal_jatuh_tempo' => 'date', 'nominal_modal' => 'decimal:2', 'estimasi_return' => 'decimal:5:2'];
+    protected $casts = ['tanggal_mulai' => 'date', 'tanggal_jatuh_tempo' => 'date', 'nominal_modal' => 'decimal:2', 'estimasi_return' => 'decimal:2'];
 
     public function workspace()
     {

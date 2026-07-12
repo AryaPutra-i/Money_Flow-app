@@ -23,7 +23,15 @@ class CategoryResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Master Data';
 
-    protected static ?string $recordTitleAttribute = 'Category';
+    protected static ?string $recordTitleAttribute = 'name_category';
+
+    public static function getGloballySearchableAttrributes(): array
+    {
+        return [
+            'name_category',
+            'workspace.name',
+        ],
+    }
 
     public static function form(Schema $schema): Schema
     {

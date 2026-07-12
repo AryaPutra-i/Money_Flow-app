@@ -23,8 +23,6 @@ class BudgetResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
 
-    protected static ?string $recordTitleAttribute = 'budget';
-
     public static function form(Schema $schema): Schema
     {
         return BudgetForm::configure($schema);

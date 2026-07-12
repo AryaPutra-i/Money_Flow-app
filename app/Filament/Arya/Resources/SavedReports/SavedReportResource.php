@@ -24,7 +24,7 @@ class SavedReportResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Financial Analysis';
 
 
-    protected static ?string $recordTitleAttribute = 'createSavedReport';
+    protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {

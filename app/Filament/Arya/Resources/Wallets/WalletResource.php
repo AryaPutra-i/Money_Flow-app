@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+use Illuminate\Contracts\Support\Htmlable;
 
 class WalletResource extends Resource
 {
@@ -24,6 +25,21 @@ class WalletResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Master Data';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable {
+        return $record->name;
+    }
+
+    public static function getGloballySearchableAttributes(): array {
+        return ['name', 'workspace.name'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array {
+        return [
+            'Workspace' => $record->workspace->name,
+            'Balance' => $record->balance,
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

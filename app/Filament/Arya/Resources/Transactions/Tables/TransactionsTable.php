@@ -16,11 +16,11 @@ class TransactionsTable
         return $table
             ->columns([
                 TextColumn::make('workspace.name')
-                    ->searchable(),
+                    ->sortable(),
                 TextColumn::make('wallet.name')
-                    ->searchable(),
+                    ->sortable(),
                 TextColumn::make('category.id')
-                    ->searchable(),
+                    ->sortable(),
                 TextColumn::make('amount')
                     ->numeric()
                     ->sortable(),

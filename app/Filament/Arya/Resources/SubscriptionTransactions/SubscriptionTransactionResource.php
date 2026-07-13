@@ -24,7 +24,24 @@ class SubscriptionTransactionResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Transactions & Social Life';
 
 
-    protected static ?string $recordTitleAttribute = 'subcriptionTransaction';
+    protected static ?string $recordTitleAttribute = 'nama_transaksi';
+
+    public static function getGlobalSearchResultTitle(Model  $record): string {
+        return $record->nama_transaksi;
+    }
+
+    public static function getGloballySearchableAttributes(): array {
+        return ['nama_transaksi'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array {
+        return [
+            'Nominal' => $record->nominal,
+            'Frekuensi' => $record->frekuensi,
+            'Tanggal Mulai' => $record->tanggal_mulai,
+            'Tanggal Eksekusi Berikutnya' => $record->tanggal_eksekusi_berikutnya,
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+use Illuminate\Contracts\Support\Htmlable;
 
 class SavingInvestasiResource extends Resource
 {
@@ -23,7 +24,29 @@ class SavingInvestasiResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Saving & Investments';
 
-    protected static ?string $recordTitleAttribute = 'SavingInvestasi';
+    protected static ?string $recordTitleAttribute = 'nama_instrumen';
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable {
+        return $record->nama_instrumen;
+    }
+
+    public static function getGloballySearchableAttributes(): array {
+        return ['wallet.name', 'workspace.name', 'instrumen', 'nama_instrumen'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array {
+        return [
+            'Wallet' => $record->wallet->name,
+            'Workspace' => $record->workspace->name,
+            'Intrumen' => $record->instrumen,
+            'Nama Instrumen' => $record->nama_instrumen,
+            'Nominal Modal' => $record->nominal_modal,
+            'Estimasi Return (%)' => $record->estimasi_return,
+            'Tanggal Mulai' => $record->tanggal_mulai,
+            'Tanggal Jatuh Tempo' => $record->tanggal_jatuh_tempo,
+            'Status' => $record->status,
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

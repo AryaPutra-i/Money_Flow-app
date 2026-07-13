@@ -31,12 +31,12 @@ class CategoryResource extends Resource
         return $record->name_category;
     }
 
-    public static function getGloballySearchableAttrributes(): array
+    public static function getGloballySearchableAttributes(): array
     {
         return [
             'name_category',
             'workspace.name',
-        ],
+        ];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array

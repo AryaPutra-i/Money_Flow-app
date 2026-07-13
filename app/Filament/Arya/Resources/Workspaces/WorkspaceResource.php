@@ -23,7 +23,6 @@ class WorkspaceResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Workspace Isolation';
 
-    protected static ?string $recordTitleAttribute = 'Workspace';
 
     public static function form(Schema $schema): Schema
     {

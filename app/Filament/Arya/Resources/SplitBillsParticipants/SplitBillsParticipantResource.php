@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+use Illuminate\Contracts\Support\Htmlable;
 
 class SplitBillsParticipantResource extends Resource
 {
@@ -23,7 +24,23 @@ class SplitBillsParticipantResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Transactions & Social Life';
 
-    protected static ?string $recordTitleAttribute = 'SplitBillsParticipant';
+    protected static ?string $recordTitleAttribute = 'friend_name';
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable {
+        return $record->friend_name;
+    }
+
+    public static function getGloballySearchableAttributes(): array {
+        return ['friend_name', 'split_bill.name'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array {
+        return [
+            'Split Bill' => $record->split_bill->name,
+            'amount_due' => $record->amount_due,
+            'is_paid' => $record->is_paid,
+        ];
+    }
 
     public static function form(Schema $schema): Schema
     {

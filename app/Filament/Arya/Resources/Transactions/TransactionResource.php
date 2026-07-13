@@ -23,7 +23,6 @@ class TransactionResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Transactions & Social Life';
 
-    protected static ?string $recordTitleAttribute = 'Transaction';
 
     public static function form(Schema $schema): Schema
     {

@@ -22,15 +22,15 @@ class FinancialHealthScoresTable
     {
         return $table
             ->columns([
-                TextColumn::make('workspace.name')->label('Nama Workspace')->sortable()->searchable(),
-                TextColumn::make('score')->label('Skor Kesehatan Finansial')->badge()->suffix('%')
+                TextColumn::make('workspace.name')->label('Name Workspace')->sortable()->searchable(),
+                TextColumn::make('score')->label('Financial Health Score')->badge()->suffix('%')
                     ->color(fn (int $state): string => match (true) {
                         $state >= 80 => 'success',
                         $state >= 60 => 'warning',
                         default => 'danger',
                     })
                     ->sortable(),
-                TextColumn::make('created_at')->label('waktu perhitungan')->dateTime('d M Y H:i'),
+                TextColumn::make('created_at')->label('Calculation Time')->dateTime('d M Y H:i'),
                 
             ])
             ->filters([

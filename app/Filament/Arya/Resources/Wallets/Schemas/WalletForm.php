@@ -19,7 +19,8 @@ class WalletForm
                 TextInput::make('balance')
                     ->required()
                     ->numeric()
-                    ->default(0.0),
+                    ->default(0.0)
+                    ->minValue(0.0),
             ]);
     }
 }

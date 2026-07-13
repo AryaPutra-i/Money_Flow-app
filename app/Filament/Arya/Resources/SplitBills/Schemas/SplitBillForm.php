@@ -17,9 +17,10 @@ class SplitBillForm
                     ->required(),
                 TextInput::make('amount')
                     ->required()
+                    ->minValue(0.0)
                     ->numeric(),
                 Select::make('status')
-                    ->options(['pending' => 'Pending', 'complated' => 'Complated']),
+                    ->options(['pending' => 'Pending', 'completed' => 'Completed']),
             ]);
     }
 }

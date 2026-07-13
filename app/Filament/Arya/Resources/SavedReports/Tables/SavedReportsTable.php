@@ -17,12 +17,12 @@ class SavedReportsTable
         return $table
             ->columns([
                 TextColumn::make('workspace.name')->label('Workspace')->sortable()->searchable(),
-                TextColumn::make('nama_laporan')->label('Nama Laporan')->sortable()->searchable(),
-                TextColumn::make('tipe_grafik')->label('Forma Visualisasi Grafik')
+                TextColumn::make('nama_laporan')->label('Report Name')->sortable()->searchable(),
+                TextColumn::make('tipe_grafik')->label('Chart Type')
                     ->badge()
                     ->color('info')
                     ->formatStateUsing(fn (string $state): string => strtoupper($state)),
-                TextColumn::make('created_at')->label('Dibuat Pada')->date('d M Y'),
+                TextColumn::make('created_at')->label('Created At')->date('d M Y'),
             ])
             ->filters([
                 //

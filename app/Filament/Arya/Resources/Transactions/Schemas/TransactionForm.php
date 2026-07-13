@@ -25,6 +25,7 @@ class TransactionForm
                     ->required(),
                 TextInput::make('amount')
                     ->required()
+                    ->minValue(0.0)
                     ->numeric(),
                 Select::make('type')
                     ->options(['income' => 'Income', 'expense' => 'Expense', 'transfer' => 'Transfer'])

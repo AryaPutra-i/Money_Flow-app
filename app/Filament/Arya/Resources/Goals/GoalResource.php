@@ -15,6 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class GoalResource extends Resource
 {
@@ -25,6 +27,9 @@ class GoalResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
 
     protected static ?string $recordTitleAttribute = 'Deskripsi';
+
+        protected ?string $heading = 'Goal';
+
 
     public static function getGloballySearchableAttrributes(): array
     {

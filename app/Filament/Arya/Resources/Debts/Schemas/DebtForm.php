@@ -23,6 +23,7 @@ class DebtForm
                     ->required(),
                 TextInput::make('amount')
                     ->required()
+                    ->minValue(0.0)
                     ->numeric(),
                 Select::make('status')
                     ->options(['unpaid' => 'Unpaid', 'paid' => 'Paid'])

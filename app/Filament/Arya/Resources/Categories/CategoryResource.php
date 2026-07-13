@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use UnitEnum;
 use Illuminate\Contracts\Support\Htmlable;
 
@@ -25,6 +26,8 @@ class CategoryResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Master Data';
 
     protected static ?string $recordTitleAttribute = 'name_category';
+
+    protected ?string $heading = 'Category';
 
     public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {

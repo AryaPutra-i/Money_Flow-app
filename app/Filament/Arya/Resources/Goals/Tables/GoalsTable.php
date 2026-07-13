@@ -16,13 +16,17 @@ class GoalsTable
         return $table
             ->columns([
                 TextColumn::make('workspace.name')
+                    ->label('Workspace Name')
                     ->searchable(),
                 TextColumn::make('Deskripsi')
+                    ->label('Description')
                     ->searchable(),
                 TextColumn::make('target_amount')
+                    ->label('Target Amount')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('current_amount')
+                    ->label('Current Amount')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')

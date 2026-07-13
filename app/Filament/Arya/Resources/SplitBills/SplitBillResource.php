@@ -23,7 +23,7 @@ class SplitBillResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Transactions & Social Life';
 
-    protected static ?string $recordTitleAttribute = 'SplitBill';
+    protected ?string $heading = 'Split Bill';
 
     public static function form(Schema $schema): Schema
     {

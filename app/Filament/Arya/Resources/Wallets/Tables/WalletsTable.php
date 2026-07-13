@@ -20,6 +20,7 @@ class WalletsTable
                     ->searchable(),
                 TextColumn::make('balance')
                     ->numeric()
+                    ->money('IDR', locale: 'id', decimalPlaces: 0)
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

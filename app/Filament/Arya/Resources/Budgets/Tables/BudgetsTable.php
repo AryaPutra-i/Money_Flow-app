@@ -21,7 +21,7 @@ class BudgetsTable
                 TextColumn::make('limit_amount')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('moonth_year')
+                TextColumn::make('moonth_year')->Label('Month Year')
                     ->date()
                     ->sortable(),
                 TextColumn::make('created_at')

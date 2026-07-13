@@ -14,6 +14,8 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use unitEnum;
+use Illuminate\Database\Eloquent\Model;
+
 
 class SubscriptionTransactionResource extends Resource
 {
@@ -25,6 +27,9 @@ class SubscriptionTransactionResource extends Resource
 
 
     protected static ?string $recordTitleAttribute = 'nama_transaksi';
+
+    protected ?string $heading = 'Subscription Transaction';
+
 
     public static function getGlobalSearchResultTitle(Model  $record): string {
         return $record->nama_transaksi;

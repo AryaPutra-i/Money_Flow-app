@@ -22,25 +22,25 @@ class SavingInvestasisTable
                     ->label('Workspace')
                     ->searchable(),
                 TextColumn::make('intrumen')
-                    ->label('Intrumen')
+                    ->label('Instrument')
                     ->searchable(),
                 TextColumn::make('nama_instrumen')
-                    ->label('Nama Instrumen')
+                    ->label('Instrument Name')
                     ->searchable(),
                 TextColumn::make('nominal_modal')
-                    ->label('Nominal Modal')
+                    ->label('Nominal Capital')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('estimasi_return')
-                    ->label('Estimasi Return (%)')
+                    ->label('Expected Return (%)')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('tanggal_mulai')
-                    ->label('Tanggal Mulai')
+                    ->label('Start Date')
                     ->date()
                     ->sortable(),
                 TextColumn::make('tanggal_jatuh_tempo')
-                    ->label('Tanggal Jatuh Tempo')
+                    ->label('Maturity Date')
                     ->date()
                     ->sortable(),
                 TextColumn::make('status')

@@ -15,6 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class WalletResource extends Resource
 {
@@ -25,6 +27,8 @@ class WalletResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Master Data';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    protected ?string $heading = 'Wallet';
 
     public static function getGlobalSearchResultTitle(Model $record): string | Htmlable {
         return $record->name;

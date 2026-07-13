@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use UnitEnum;
 
 class BudgetResource extends Resource
@@ -22,6 +23,8 @@ class BudgetResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedScale;
 
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
+
+    protected ?string $heading = 'Budget';
 
     public static function form(Schema $schema): Schema
     {

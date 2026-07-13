@@ -23,6 +23,8 @@ class TransactionsTable
                     ->sortable(),
                 TextColumn::make('amount')
                     ->numeric()
+                    ->money('IDR', locale: 'id')
+                    ->prefix('Rp')
                     ->sortable(),
                 TextColumn::make('type')
                     ->badge(),

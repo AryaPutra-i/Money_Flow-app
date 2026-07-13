@@ -23,6 +23,8 @@ class FinancialHealthScoreResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Financial Analysis';
 
+    protected ?string $heading = 'Financial Health Score';
+
 
     public static function form(Schema $schema): Schema
     {

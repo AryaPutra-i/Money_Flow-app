@@ -15,6 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class SavingInvestasiResource extends Resource
 {
@@ -26,12 +28,15 @@ class SavingInvestasiResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama_instrumen';
 
+    protected ?string $heading = 'Saving & Investments';
+
+
     public static function getGlobalSearchResultTitle(Model $record): string | Htmlable {
         return $record->nama_instrumen;
     }
 
     public static function getGloballySearchableAttributes(): array {
-        return ['wallet.name', 'workspace.name', 'instrumen', 'nama_instrumen'];
+        return ['nama_instrumen'];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array {

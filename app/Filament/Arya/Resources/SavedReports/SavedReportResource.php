@@ -15,6 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use unitEnum;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class SavedReportResource extends Resource
 {
@@ -26,12 +28,15 @@ class SavedReportResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama_laporan';
 
-    public static function getGlobalSearchResultTitle(SavedReport $record): string|Htmlable
+    protected ?string $heading = 'Saved Report';
+
+
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
         return $record->nama_laporan;
     }
 
-    public static function getGlobalSearchResultDetails(SavedReport $record): array
+    public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
             'Workspace' => $record->workspace->name,

@@ -15,6 +15,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class DebtResource extends Resource
 {
@@ -25,6 +27,8 @@ class DebtResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Planning & Obligations';
 
     protected static ?string $recordTitleAttribute = 'person_name';
+
+    protected ?string $heading = 'Debt';
 
     public static function getGloballySearchableAttrributes(): array
     {

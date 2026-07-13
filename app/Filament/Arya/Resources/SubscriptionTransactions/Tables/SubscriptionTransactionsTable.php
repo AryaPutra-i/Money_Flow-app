@@ -20,17 +20,18 @@ class SubscriptionTransactionsTable
                     ->searchable(),
                 TextColumn::make('nominal')
                     ->label('Nominal')
-                    ->money('idr')
+                    ->numeric()
+                    ->money('IDR', locale: 'id')
                     ->sortable(),
                 TextColumn::make('frekuensi')
-                    ->label('Frekuensi')
+                    ->label('Frequency')
                     ->badge(),
                 TextColumn::make('tanggal_mulai')
-                    ->label('Tanggal Mulai')
+                    ->label('Start Date')
                     ->date()
                     ->sortable(),
                 TextColumn::make('tanggal_eksekusi_berikutnya')
-                    ->label('Tanggal Eksekusi Berikutnya')
+                    ->label('Next Execution Date')
                     ->date()
                     ->sortable(),
             ])

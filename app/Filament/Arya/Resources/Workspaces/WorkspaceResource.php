@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use UnitEnum;
 
 class WorkspaceResource extends Resource
@@ -22,6 +23,8 @@ class WorkspaceResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
     
     protected static string | UnitEnum | null $navigationGroup = 'Workspace Isolation';
+
+    protected ?string $heading = 'Workspace';
 
 
     public static function form(Schema $schema): Schema

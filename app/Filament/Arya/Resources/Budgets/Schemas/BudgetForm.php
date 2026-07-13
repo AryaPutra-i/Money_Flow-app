@@ -17,11 +17,12 @@ class BudgetForm
                     ->relationship('workspace', 'name')
                     ->required(),
                 Select::make('category_id')
-                    ->relationship('category', 'id')
+                    ->relationship('category', 'name_category')
                     ->required(),
                 TextInput::make('limit_amount')
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->minValue(10000),
                 DatePicker::make('moonth_year')
                     ->required(),
             ]);

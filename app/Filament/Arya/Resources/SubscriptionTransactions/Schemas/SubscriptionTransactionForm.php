@@ -31,6 +31,7 @@ class SubscriptionTransactionForm
                 TextInput::make('nominal')
                     ->label('Nominal harga')
                     ->numeric()
+                    ->prefix('Rp')
                     ->required()
                     ->minValue(0.0),
                 Select::make('frekuensi')

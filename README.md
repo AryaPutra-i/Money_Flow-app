@@ -133,3 +133,7 @@ Jika aplikasi ini menggunakan autentikasi Filament, pastikan membuat akun penggu
 - Jika menggunakan MySQL/MariaDB, pastikan server database sudah berjalan dan kredensial di `.env` sudah benar.
 - Jika mengalami error saat `composer install`, periksa kembali versi PHP dan ekstensi yang terpasang.
 - Jika proyek tidak otomatis menemukan `.env.example`, buat `.env` secara manual dengan menyalin isinya.
+
+## Code Coverage Result 
+Hasil dari Code coverage berada pada pada folder `metriks\Code_Coverage.md`, silahkan cek disini : 
+[Metriks Code Coverage](metriks\Code_Coverage.md)
